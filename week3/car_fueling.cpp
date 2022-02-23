@@ -10,20 +10,20 @@ int compute_min_refills(int dist, int tank, vector<int> & stops)
 {
   int fullTank = tank;
   int currPosition = 0;
-  int currStop = 0;
+  int nextStop = 0;
   int refills = 0;
-  while(currPosition <= dist && currStop < stops.size()){
-       if(stops[currStop] - currPosition > fullTank){
+  while(currPosition <= dist && nextStop < stops.size()){
+       if(stops[nextStop] - currPosition > fullTank){
         return -1;
        }
-       if(stops[currStop] - currPosition > tank){
+       if(stops[nextStop] - currPosition > tank){
          refills++;
          tank = fullTank;
        }
-         int difference = stops[currStop] - currPosition;
+         int difference = stops[nextStop] - currPosition;
          tank = tank - difference;
-         currPosition = stops[currStop];
-         currStop ++;
+         currPosition = stops[nextStop];
+         nextStop ++;
   }
 
   if(dist - currPosition > fullTank)

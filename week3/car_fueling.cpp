@@ -30,10 +30,9 @@ int compute_min_refills(int dist, int tank, vector<int> & stops)
     return -1;
   if(dist - currPosition <= tank)
     return refills;
-  else{
-    refills ++;
-    return refills;
-  }
+  else
+    return ++refills;
+
 
 }
 
